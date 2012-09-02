@@ -9,14 +9,29 @@
 	<body>
 		<div>
 			<h1>miniqr/reader 2.0 pre alpha</h1>
-			<div id="video_placeholder"></div>
-			<canvas id="qr-canvas" width="320" height="240"></canvas>
-			<canvas id="out-canvas" width="320" height="240"></canvas>
+			<div id="vid"></div>
+			<div id="stdout"></div>
 		</div>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery/jquery-1.8.1.min.js"><\/script>')</script>
 		<script src="js/vendor/jsqrcode/lib/jsqrcode.min.js" ></script>
 		<script src="js/vendor/Sinne/lib/Sinne.js" ></script>
 		<script src="js/lib/main.js" min="js/lib/main.min.js"></script>
+		<script>
+			//after we have got access to the users webcam
+			var videoSuccess = function(video) { $('#vid').html(video) }
+			
+			//if we didn't get access to the webcam
+			var videoError = function(error) { $('#stdout').prepend('<b>Sorry, i need webcam access to do anything useful!</b>') }
+			
+			//if we have successfully found a QR code
+			var qrSuccess = function(data) { $('#stdout').prepend($('<div>'+data+'</div>').hide().fadeIn())}
+			
+			//if we didn't find a QR code
+			var qrError = function(e) { /* console.log(e);*/ }
+			
+			//call the miniqr-reader function
+			Miniqr.getUserQR(videoSuccess, videoError, qrSuccess, qrError);
+		</script>
 	</body>
 </html>
