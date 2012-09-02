@@ -35,5 +35,5 @@ after you have access to the users webcam, this function is called, it  gives yo
 Miniqr.reader() has currently 2 dependencies
 
  * <a href="https://github.com/franzenzenhofer/Sinne">https://github.com/franzenzenhofer/Sinne</a>
- * <a href="https://github.com/franzenzenhofer/jsqrcode">https://github.com/franzenzenhofer/jsqrcode</a> - a fork of jsqrcode
+ * <a href="https://github.com/franzenzenhofer/jsqrcode">https://github.com/franzenzenhofer/jsqrcode</a> - my fork of jsqrcode
  
