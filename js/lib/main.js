@@ -49,7 +49,7 @@
     }
   };
 
-  Miniqr.getUserQR = function(videoSuccess, videoError, qrSuccess, qrError, options) {
+  Miniqr.reader = function(videoSuccess, videoError, qrSuccess, qrError, options) {
     var canvas, ctx, default_options, key, options_, val, videoPreSuccess;
     canvas = document.createElement('canvas');
     ctx = canvas.getContext('2d');

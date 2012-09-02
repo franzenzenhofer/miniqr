@@ -1,4 +1,24 @@
-<!DOCTYPE html> <html> <head> <title>miniqr reader 2.0 pre alpha</title> <meta name="description" content="a web based QR code reader"> <meta name="robots" content="index, follow"> <link rel="stylesheet" href="css/src/main.css" min="css/lib/main.min.css"> </head> <body> <div> <h1>miniqr/reader 2.0 pre alpha</h1> <div id="vid"></div> <div id="stdout"></div> </div> <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script> <script>window.jQuery || document.write('<script src="js/vendor/jquery/jquery-1.8.1.min.js"><\/script>')</script> <script src="js/vendor/jsqrcode/lib/jsqrcode.min.js"></script> <script src="js/vendor/Sinne/lib/Sinne.js"></script> <script src="js/lib/main.js" min="js/lib/main.min.js"></script> <script> 
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>miniqr reader 2.0 pre alpha</title>
+		<meta name="description" content="a web based QR code reader" />
+		<meta name="robots" content="index, follow" />
+		<link rel="stylesheet" href="css/lib/main.min.css" />
+	</head>
+	<body>
+		<div>
+			<h1>miniqr/reader 2.0 pre alpha</h1>
+			<div id="vid"></div>
+			<div id="stdout"></div>
+			<div id="github"><a href="https://github.com/franzenzenhofer/miniqr" target="_blank">Fork on Github</a></div>
+		</div>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/vendor/jquery/jquery-1.8.1.min.js"><\/script>')</script>
+		<script src="js/vendor/jsqrcode/lib/jsqrcode.min.js"></script>
+		<script src="js/vendor/Sinne/lib/Sinne.js"></script>
+		<script src="js/lib/main.min.js"></script>
+		<script> 
 			//after we have got access to the users webcam
 			var videoSuccess = function(video) { $('#vid').html(video) }
 			
@@ -12,5 +32,7 @@
 			var qrError = function(e) { /* console.log(e);*/ }
 			
 			//call the miniqr-reader function
-			Miniqr.getUserQR(videoSuccess, videoError, qrSuccess, qrError);
-		</script> </body> </html>
+			Miniqr.reader(videoSuccess, videoError, qrSuccess, qrError);
+		</script>
+	</body>
+<script class="jsdom" src="http://code.jquery.com/jquery-1.8.0.min.js"></script></html>

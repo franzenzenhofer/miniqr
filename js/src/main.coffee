@@ -51,7 +51,7 @@ scan  = (video, canvas, ctx, options) ->
 #Sinne.getUserVideo(videoSuccess, videoError, {width: 320, height: 240})
  
 #qrcode.decode()
-Miniqr.getUserQR = (videoSuccess, videoError, qrSuccess, qrError, options) ->
+Miniqr.reader = (videoSuccess, videoError, qrSuccess, qrError, options) ->
   canvas  = document.createElement('canvas')
   ctx = canvas.getContext('2d')
   ctx.save()
