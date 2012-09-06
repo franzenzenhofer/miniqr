@@ -2,7 +2,7 @@
  *    Copyright (c) 2010 Tobias Schneider
  *    This script is freely distributable under the terms of the MIT license.
  */
-;
+
 (function(){
     var UPC_SET = {
         "3211": '0',
@@ -16,12 +16,12 @@
         "1213": '8',
         "3112": '9'
     };
-    
-    window.getBarcodeFromImage = function(imgOrId){
+
+    window.getBarcodeFromImage = function(imgOrId, forceWidth){
         var doc = document,
             img = "object" == typeof imgOrId ? imgOrId : doc.getElementById(imgOrId),
             canvas = doc.createElement("canvas"),
-            width = img.width,
+            width = forceWidth || img.width,
             height = img.height,
             ctx = canvas.getContext("2d"),
             spoints = [1, 9, 2, 8, 3, 7, 4, 6, 5],
@@ -30,9 +30,9 @@
             round = Math.round;
         canvas.width = width;
         canvas.height = height;
-        ctx.drawImage(img, 0, 0);
+        ctx.drawImage(img, 0, 0, width, height);
+
         while(numLines--){
-            console.log(spoints[numLines]);
             var pxLine = ctx.getImageData(0, slineStep * spoints[numLines], width, 2).data,
                 sum = [],
                 min = 0,
